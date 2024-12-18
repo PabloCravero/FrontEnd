@@ -25,7 +25,7 @@ export class ContactFormComponent {
       Authorization: 'Bearer ' + authToken,
     };
  console.log(headers);
-    this.http.post('http://localhost:3000/enviar-correo', this.formData,{ headers }).subscribe(
+    this.http.post('backend-production-a962.up.railway.app/enviar-correo', this.formData,{ headers }).subscribe(
       {
       next: response => {
         console.log('Formulario enviado:', this.formData);

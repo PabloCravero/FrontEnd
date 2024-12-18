@@ -4,17 +4,20 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { UserStateService } from './user-state.service';
+import { environment } from './environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private URL = 'http://localhost:3000/api';
+  private URL = environment.apiUrl + '/api'; 
   private _userRole: string | null = null;
+
   get userRole(): string | null {
     return this._userRole;
-  
   }
+
   constructor(
     private http: HttpClient,
     private router: Router,

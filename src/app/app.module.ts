@@ -86,7 +86,7 @@ import { IngresoStockComponent } from './ingreso-stock/ingreso-stock.component';
       JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('token'),
-        allowedDomains: ['http://localhost:3000'], 
+        allowedDomains: ['backend-production-a962.up.railway.app'], 
         disallowedRoutes: [], 
       },
     }),

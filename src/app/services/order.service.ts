@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class OrderService {
 
-  private URL = 'http://localhost:3000/api';
+  private URL = 'backend-production-a962.up.railway.app/api';
 
   constructor(
     private http: HttpClient,

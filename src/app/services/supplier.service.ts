@@ -8,7 +8,7 @@ import {map, catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SupplierService {
- private URL = 'http://localhost:3000/api';
+ private URL = 'backend-production-a962.up.railway.app/api';
   constructor (    
       private http: HttpClient,
       private router: Router
