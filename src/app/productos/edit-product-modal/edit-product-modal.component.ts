@@ -31,6 +31,13 @@ export class EditProductModalComponent implements OnInit {
     });
   }
 
+  onImageSelected(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files[0]) {
+      this.editedProduct.image = inputElement.files[0];
+    }
+  }
+
   saveChanges() {
     this.productService.updateProduct(this.editedProduct, this.editedProduct._id).subscribe(
       
