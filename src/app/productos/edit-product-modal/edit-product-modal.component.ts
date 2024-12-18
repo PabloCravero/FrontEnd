@@ -40,43 +40,40 @@ export class EditProductModalComponent implements OnInit {
 
   saveChanges() {
     const formData = new FormData();
+  
+    // Agregar todos los campos del producto al FormData
+    for (const key in this.editedProduct) {
+      if (key !== 'image') { // La imagen se añade por separado
+        formData.append(key, this.editedProduct[key]);
+      }
+    }
+  
+    // Agregar la imagen solo si existe
     if (this.editedProduct.image) {
       formData.append('image', this.editedProduct.image);
-      console.log("editedProduct",this.editedProduct);
     }
-    this.productService.updateProduct(this.editedProduct, this.editedProduct._id).subscribe(
-      
+  
+    // Enviar el FormData al servicio
+    this.productService.updateProduct(formData, this.editedProduct._id).subscribe(
       {
-        next:res => {
+        next: res => {
           Swal.fire('Producto actualizado con éxito!!', '', 'success');
-          console.log("editedProduct",res);
+          console.log("editedProduct", res);
         },
-        error:err => {
+        error: err => {
           console.log(err);
           Swal.fire({
             icon: 'error',
             title: 'Actualización fallida',
             text: err.error,
-         });
+          });
         }
-
       }
-      // res => {
-      //   Swal.fire('Producto actualizado con éxito!!', '', 'success');
-      //   console.log("editedProduct",res);
-      // },
-      // (err) => {
-      //   console.log(err);
-      //   Swal.fire({
-      //     icon: 'error',
-      //     title: 'Actualización fallida',
-      //     text: err.error,
-      //   });
-      // }
     );
-
+  
     this.activeModal.close(this.editedProduct);
   }
+  
 
   close() {
     this.activeModal.close(this.editedProduct);
