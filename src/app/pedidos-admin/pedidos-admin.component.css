@@ -26,4 +26,15 @@
     .text-center .btn {
       margin-bottom: 10px;
     }
+
+    .pendiente {
+      background-color: #f8d7da; 
+      color: #721c24;  
+    }
+    
+    
+    .en-curso {
+      background-color: #cce5ff;  
+      color: #004085;  
+    }
 }

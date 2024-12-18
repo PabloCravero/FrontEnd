@@ -36,6 +36,7 @@ export class NavVarComponent implements OnInit {
         }
       });
   }
+  
   ngOnInit(): void {
     this.countService.productsInCart$.subscribe(value => {
       this.productsInCart = value;
@@ -83,10 +84,10 @@ searchProducts() {
   console.log(this.searchTerm);
 
   if (this.searchTerm) {
-    this.router.navigate([], { relativeTo: this.route, queryParams: { q: this.searchTerm } });
+    this.router.navigate(['/productos'], { relativeTo: this.route, queryParams: { q: this.searchTerm } });
   }
   else {
-    this.router.navigate([], { relativeTo: this.route });
+    this.router.navigate(['/productos'], { relativeTo: this.route });
   }
 }
 
