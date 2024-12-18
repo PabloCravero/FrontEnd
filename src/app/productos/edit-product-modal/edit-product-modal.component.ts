@@ -39,6 +39,10 @@ export class EditProductModalComponent implements OnInit {
   }
 
   saveChanges() {
+    const formData = new FormData();
+    if (this.editedProduct.image) {
+      formData.append('image', this.editedProduct.image);
+    }
     this.productService.updateProduct(this.editedProduct, this.editedProduct._id).subscribe(
       
       {
