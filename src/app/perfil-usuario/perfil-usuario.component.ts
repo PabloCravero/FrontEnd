@@ -62,8 +62,8 @@ export class PerfilUsuarioComponent implements OnInit {
       const formData = new FormData();
       formData.append('profileImage', this.selectedImageFile);
 
-      this.http.post('backend-production-a962.up.railway.app/api/upload-profile-image', formData, { headers }).subscribe((response: any) => {
-        this.imagePath = 'backend-production-a962.up.railway.app/uploadsProfileImages/' + response.imagePath;
+      this.http.post('backend-production-ff519.up.railway.app/api/upload-profile-image', formData, { headers }).subscribe((response: any) => {
+        this.imagePath = 'backend-production-ff519.up.railway.app/uploadsProfileImages/' + response.imagePath;
         this.selectedImageFile = null;
         window.location.reload();
       });
