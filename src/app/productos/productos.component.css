@@ -1,0 +1,33 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-card .card {
+    flex: 1;
+  }
+  
+  .product-card .card-img-top {
+    height: 200px;
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+  }
+
+  .truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .btn-custom {
+    background-color: #ff5733; 
+    color: #ffffff;
+  }
+  
+  .btn-custom:hover {
+    background-color: #ff4500; 
+    color: #ffffff;
+  }
+
+  .no-underline {
+    text-decoration: none;
+  }

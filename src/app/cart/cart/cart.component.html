@@ -1,0 +1,48 @@
+<app-nav-var></app-nav-var>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center my-4">
+      <h2 style="color: #333; font-size: 28px;">Mi Carrito</h2>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+         <!-- <th>Precio Unitario</th>-->
+          <th>Subtotal</th>
+          <!--<th>Acciones</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.desc }}</td>
+          <td>
+            <div class="quantities">
+              <button class="rest btn btn-primary" (click)="updateQuantity(item._id, item.quantity - 1)">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span>{{ item.quantity }}</span>
+              <button class="btn btn-primary" (click)="updateQuantity(item._id, item.quantity + 1)">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </td>
+          <!--<td>{{ item.price | currency }}</td>-->
+          <td class="subtotal">
+            <span>{{ item.price * item.quantity | currency }}</span>
+            <button class="btn btn-danger" style="margin-left: 1rem;" (click)="removeFromCart(item._id)"><i
+                class="fas fa-trash"></i></button>
+          </td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="total col-12 text-right my-4">
+    <p>Subtotal: {{ total | currency }}</p>
+    <button class="btn btn-success" (click)="confirmarPedido()">Confirmar Pedido</button>
+  </div>
+</div>

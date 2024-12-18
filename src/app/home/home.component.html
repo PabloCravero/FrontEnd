@@ -1,0 +1,14 @@
+<app-nav-var></app-nav-var>
+
+<app-carousel></app-carousel>
+
+<div class="container my-4">
+  <h2 class="text-center">Productos Destacados</h2>
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-4" *ngFor="let product of featuredProducts">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,63 @@
+
+<section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+            MPS <br />
+            <span style="color: hsl(218, 81%, 75%)">Tu lugar para comprar</span>
+          </h1>
+          <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+            Descubre en MPS los mejores componentes de computación. Desde procesadores veloces hasta tarjetas gráficas de alta gama, tenemos todo para mejorar tu PC. Expertos en tecnología listos para asesorarte."
+          </p>
+        </div>
+  
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form (submit)="signUp()">
+
+                <div class="form-outline mb-4">
+                  <input type="businessName" [(ngModel)]="user.businessName" [ngModelOptions]="{ standalone: true }" id="form3Example1" class="form-control" />
+                  <label class="form-label" for="form3Example1">Razon Social</label>
+                  
+                  <input type="email" [(ngModel)]="user.email" [ngModelOptions]="{ standalone: true }" id="form3Example2" class="form-control" />
+                  <label class="form-label" for="form3Example2">Email address</label>
+                  
+                  <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{ standalone: true }" id="form3Example3" class="form-control" />
+                  <label class="form-label" for="form3Example3">Password</label>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" [(ngModel)]="user.cuit" [ngModelOptions]="{ standalone: true }"  id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Cuit</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" [(ngModel)]="user.phoneNumber" [ngModelOptions]="{ standalone: true }" id="form3Example5" class="form-control" />
+                        <label class="form-label" for="form3Example5">Telefono</label>
+                      </div>
+                    </div>
+
+                  </div>
+                    <input type="adress" [(ngModel)]="user.address" [ngModelOptions]="{ standalone: true }" id="form3Example6" class="form-control" />
+                    <label class="form-label" for="form3Example6">Address</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mb-4 mx-auto d-block  ">
+                  Registrarse
+                </button>
+                <p class="text-center">¿Desea volver a la <a routerLink="/login">página de inicio de sesión</a>?</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 

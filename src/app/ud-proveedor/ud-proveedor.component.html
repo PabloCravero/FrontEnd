@@ -1,0 +1,78 @@
+<app-nav-var></app-nav-var>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+      <div class="card mt-5">
+        <div class="card-header text-center">
+          <h2>Modificación Proveedor </h2>
+        </div>
+        <div class="card-body">
+          <form>
+            
+            <div class="mb-3">
+              <label for="cuit" class="form-label">CUIT</label>
+              <input type="text" class="form-control" id="cuit" name="cuit" placeholder="Ingrese el CUIT o razón social del proveedor"
+                [(ngModel)]="cuit">
+            </div >
+
+              <div *ngIf="foundCuil && foundSuppliers && foundSuppliers.length > 0">
+                <label for="selectSupplier" class="form-label">Seleccione un proveedor</label>
+                <select class="form-select" id="selectSupplier" [(ngModel)]="supplier" (change)="onSupplierSelect(supplier)"
+                  [ngModelOptions]="{ standalone: true }">
+                  <option *ngFor="let s of foundSuppliers " [ngValue]="s">{{ s.businessName }}</option>
+                </select>
+              </div>
+
+              <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" style="width: 48%;" [routerLink]="'/admin-panel'">Atrás</button>
+                <button class="btn btn-primary btn-block" style="width: 48%;" (click)="onBuscarClick()">Buscar</button>
+              </div>
+
+              <div *ngIf="supplier" class="card-body">
+                <p class="card-text">Dirección: {{ supplier.address }}</p>
+                <p class="card-text">Cuit: {{ supplier.cuit }}</p>
+                <p class="card-text">Nombre: {{ supplier.businessName }}</p>
+                <p class="card-text">Teléfono {{ supplier.phoneNumber }}</p>
+                <div class="d-flex justify-content-between mt-4">
+                  <button class="btn btn-danger  btn-block" (click)="deleteSupplier()"    >Eliminar Proveedor</button>
+                <button type="button" class="btn btn-warning" style="width: 48%;" (click)="openModal()">Actualizar Proveedor</button>
+                </div>
+              </div>
+
+              <div class="modal" tabindex="-1" role="dialog" [ngClass]="{ 'd-block': showModal }" >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Actualizar Proveedor</h5>
+                      <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="newAddress">Nueva Dirección</label>
+                          <input *ngIf="supplier" type="text" class="form-control" id="newAddress" [(ngModel)]="supplier.address"
+                            name="newAddress">
+                        </div>
+                        <div class="form-group">
+                          <label for="newPhoneNumber">Nuevo Teléfono</label>
+                          <input *ngIf="supplier" type="text" class="form-control" id="newPhoneNumber" [(ngModel)]="supplier.phoneNumber"
+                            name="newPhoneNumber">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+                      <button type="button" class="btn btn-primary" (click)="updateSupplierDetails()">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
