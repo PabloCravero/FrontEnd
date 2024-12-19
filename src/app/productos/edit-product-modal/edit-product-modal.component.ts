@@ -72,7 +72,6 @@ export class EditProductModalComponent implements OnInit {
     );
   
     this.activeModal.close(this.editedProduct);
-    location.reload();
   }
   
 
